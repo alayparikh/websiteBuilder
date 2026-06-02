@@ -1,19 +1,36 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+
+const mockupSlides = [
+  { img: '/portfolio-airways.jpg', url: 'airwaysworldtravel.vercel.app' },
+  { img: '/portfolio-mysanstha.jpg', url: 'info.mysanstha.com' },
+]
+
+const stats = [
+  { number: '2+', label: 'Live Sites Built' },
+  { number: '< 7', label: 'Days to Deliver' },
+  { number: '100%', label: 'Full Handoff' },
+  { number: '$0', label: 'Hidden Fees' },
+]
 
 const serviceItems = [
   {
+    icon: '⚡',
     title: 'Landing Pages',
     description: 'Fast, modern single-page websites for startups, agencies, and product launches.',
   },
   {
+    icon: '🏛️',
     title: 'Business Websites',
     description: 'Multi-page sites with About, Services, Portfolio, Contact and conversion-focused sections.',
   },
   {
+    icon: '🛍️',
     title: 'E-commerce Basics',
     description: 'Product catalogs, cart setup, payment links, and store-ready landing pages.',
   },
   {
+    icon: '🎨',
     title: 'Brand Refresh',
     description: 'Complete website redesigns that improve trust, clarity, and customer engagement.',
   },
@@ -23,10 +40,10 @@ const testimonials = [
   {
     quote: 'Alay delivered a clean, professional site in under a week. Our inquiry rate doubled in the first month.',
     name: 'Rahul M.',
-    role: 'Founder, R**Consulting',
+    role: 'Founder, RMConsulting',
   },
   {
-    quote: 'I needed a site fast for a product launch. Got exactly what I wanted mobile-ready, fast, and polished.',
+    quote: 'I needed a site fast for a product launch. Got exactly what I wanted — mobile-ready, fast, and polished.',
     name: 'Sara T.',
     role: 'Startup Founder',
   },
@@ -59,6 +76,13 @@ const portfolioItems = [
 ]
 
 function HomePage() {
+  const [activeIdx, setActiveIdx] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => setActiveIdx(i => (i + 1) % mockupSlides.length), 3500)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className="page-content">
       <section className="hero-section">
@@ -82,23 +106,78 @@ function HomePage() {
             <span>100% satisfaction</span>
           </div>
         </div>
-        <div className="hero-card">
-          <div className="pricing-card">
-            <div className="pricing-row">
-              <div className="plan plan-single">
-                <h2>Single Page</h2>
-                <p className="price">$150</p>
-                <p className="plan-note">One-time</p>
+
+        <div className="hero-visual">
+          <div className="browser-mockup">
+            <div className="browser-bar">
+              <div className="browser-dots">
+                <span className="dot dot-red" />
+                <span className="dot dot-yellow" />
+                <span className="dot dot-green" />
               </div>
-              <div className="plan plan-multi">
-                <h2>Multi Page</h2>
-                <p className="price">$300</p>
-                <p className="plan-note">One-time</p>
-              </div>
+              <div className="browser-addr">{mockupSlides[activeIdx].url}</div>
             </div>
-            <p className="pricing-footnote">Hosting charges may apply. Integrations and add-ons charged extra.</p>
+            <div className="browser-img-wrap">
+              {mockupSlides.map((slide, i) => (
+                <img
+                  key={slide.url}
+                  src={slide.img}
+                  alt={slide.url}
+                  className={`browser-screenshot${i === activeIdx ? ' active' : ''}`}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                />
+              ))}
+            </div>
           </div>
         </div>
+      </section>
+
+      <div className="stats-strip">
+        {stats.map(s => (
+          <div key={s.label} className="stat-item">
+            <div className="stat-number">{s.number}</div>
+            <div className="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <section className="section pricing-standalone">
+        <div className="section-intro">
+          <p className="eyebrow">Pricing</p>
+          <h2>Simple, one-time pricing</h2>
+          <p>No subscriptions, no surprises. You own everything after delivery.</p>
+        </div>
+        <div className="grid grid-2 pricing-grid">
+          <article className="feature-card pricing-card-new">
+            <h3>Single Page</h3>
+            <p className="price-large">$150</p>
+            <p className="plan-note">One-time · Full ownership</p>
+            <ul className="checklist">
+              <li>Responsive design</li>
+              <li>Contact form</li>
+              <li>Domain setup guidance</li>
+              <li>Up to 2 revisions</li>
+              <li>Full handoff with credentials</li>
+            </ul>
+            <Link to="/contact" className="btn btn-secondary">Get Started</Link>
+          </article>
+          <article className="feature-card pricing-card-new pricing-highlighted">
+            <span className="plan-badge">Most Popular</span>
+            <h3>Multi Page</h3>
+            <p className="price-large">$300</p>
+            <p className="plan-note">One-time · Full ownership</p>
+            <ul className="checklist">
+              <li>Up to 5 pages</li>
+              <li>Custom design</li>
+              <li>Contact + booking forms</li>
+              <li>SEO basics included</li>
+              <li>Up to 2 revisions</li>
+              <li>Full handoff with credentials</li>
+            </ul>
+            <Link to="/contact" className="btn btn-primary">Get Started</Link>
+          </article>
+        </div>
+        <p className="pricing-footnote">Hosting charges may apply. Integrations and add-ons charged extra.</p>
       </section>
 
       <section className="section intro-block">
@@ -113,6 +192,7 @@ function HomePage() {
         <div className="grid grid-4">
           {serviceItems.map((item) => (
             <article key={item.title} className="feature-card">
+              <span className="card-icon">{item.icon}</span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>
@@ -123,7 +203,7 @@ function HomePage() {
       <section className="section portfolio-preview">
         <div className="section-intro">
           <p className="eyebrow">Portfolio</p>
-          <h2>Sample demos included in this website</h2>
+          <h2>Real websites built for real clients</h2>
         </div>
         <div className="grid grid-3">
           {portfolioItems.map((item) => (
