@@ -32,6 +32,50 @@
   box-sizing: border-box;
 }
 
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(125, 153, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #7d99ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+[data-theme='light'] .cursor-ring {
+  border-color: rgba(79, 70, 229, 0.5);
+}
+
+[data-theme='light'] .cursor-dot {
+  background: #4f46e5;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -89,6 +133,9 @@ textarea {
 .brand {
   font-weight: 800;
   letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .site-nav {
@@ -305,6 +352,59 @@ textarea {
   margin-bottom: 1rem;
   border-radius: 1.2rem;
   background: linear-gradient(135deg, rgba(56, 76, 255, 0.2), rgba(91, 143, 255, 0.12));
+}
+
+.portfolio-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-card,
+.portfolio-card,
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover,
+.portfolio-card:hover,
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.32);
+}
+
+[data-theme='light'] .feature-card:hover,
+[data-theme='light'] .portfolio-card:hover,
+[data-theme='light'] .service-card:hover {
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+}
+
+.btn-primary {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.portfolio-card a.portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--link);
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+
+.portfolio-card a.portfolio-link:hover {
+  text-decoration: underline;
 }
 
 .testimonial-card {

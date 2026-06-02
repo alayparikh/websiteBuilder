@@ -38,9 +38,24 @@ const testimonials = [
 ]
 
 const portfolioItems = [
-  { name: 'Premium Agency', description: 'Clean agency website built for conversions.' },
-  { name: 'Startup Launch', description: 'MVP website ready for pre-launch marketing.' },
-  { name: 'Consultant Page', description: 'Professional personal brand landing page.' },
+  {
+    name: 'mySanstha',
+    description: 'Full platform for temple and nonprofit management — donations, events, and reporting.',
+    img: '/portfolio-mysanstha.jpg',
+    url: 'https://info.mysanstha.com',
+  },
+  {
+    name: 'Airways World Travel',
+    description: 'Premium travel agency site with services, gallery, and lead capture for a 25-year-old brand.',
+    img: '/portfolio-airways.jpg',
+    url: 'https://airwaysworldtravel.vercel.app',
+  },
+  {
+    name: 'Your Website',
+    description: 'Ready to launch your own? Get a fast, modern site built and handed over in under a week.',
+    img: null,
+    url: null,
+  },
 ]
 
 function HomePage() {
@@ -113,9 +128,20 @@ function HomePage() {
         <div className="grid grid-3">
           {portfolioItems.map((item) => (
             <article key={item.name} className="portfolio-card">
-              <div className="portfolio-image" />
+              {item.img ? (
+                <img className="portfolio-img" src={item.img} alt={item.name} loading="lazy" />
+              ) : (
+                <div className="portfolio-image" />
+              )}
               <h3>{item.name}</h3>
               <p>{item.description}</p>
+              {item.url ? (
+                <a className="portfolio-link" href={item.url} target="_blank" rel="noopener noreferrer">
+                  View site →
+                </a>
+              ) : (
+                <Link to="/contact" className="portfolio-link">Get started →</Link>
+              )}
             </article>
           ))}
         </div>
