@@ -7,7 +7,7 @@ const mockupSlides = [
 ]
 
 const stats = [
-  { number: '2+', label: 'Live Sites Built' },
+  { number: '12+', label: 'Live Sites Built' },
   { number: '< 7', label: 'Days to Deliver' },
   { number: '100%', label: 'Full Handoff' },
   { number: '$0', label: 'Hidden Fees' },
@@ -251,11 +251,11 @@ function HomePage() {
             <p className="eyebrow">About</p>
             <h2>Hi, I'm Alay</h2>
             <p>
-              I build fast, modern websites for small businesses, startups, and consultants who want a
+              A software and data professional with 5+ Years of experience and who likes creativity. For which, I build fast, modern websites for small businesses, startups, and consultants who want a
               professional online presence without the agency price tag.
             </p>
             <p>
-              Every site I build comes with full handoff — you get all credentials, admin access, and
+              Every site I build comes with full handoff. You get all credentials, admin access, and
               up to 2 rounds of revisions so you launch with confidence.
             </p>
             <Link to="/contact" className="btn btn-primary">
