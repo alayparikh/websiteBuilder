@@ -68,6 +68,12 @@ const portfolioItems = [
     url: 'https://airwaysworldtravel.vercel.app',
   },
   {
+    name: "Alay's Portfolio",
+    description: 'A polished personal portfolio site showcasing design skills, case studies, and service packages.',
+    img: null,
+    url: 'https://alay-s-portfolio.vercel.app',
+  },
+  {
     name: 'Your Website',
     description: 'Ready to launch your own? Get a fast, modern site built and handed over in under a week.',
     img: null,
@@ -211,7 +217,9 @@ function HomePage() {
               {item.img ? (
                 <img className="portfolio-img" src={item.img} alt={item.name} loading="lazy" />
               ) : (
-                <div className="portfolio-image" />
+                <div className="portfolio-image">
+                  {item.url ? 'Live site preview' : 'Project preview coming soon'}
+                </div>
               )}
               <h3>{item.name}</h3>
               <p>{item.description}</p>

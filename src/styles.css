@@ -120,14 +120,19 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(9, 16, 34, 0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* header blends with page background by default (dark mode) */
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
 }
 
 [data-theme='light'] .site-header {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(148, 163, 184, 0.25);
+  /* Make header blend with page background in light mode */
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .brand {
@@ -215,9 +220,19 @@ textarea {
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--muted);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.btn-secondary:hover,
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.btn {
+  transition: transform 0.2s ease, filter 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .eyebrow {
@@ -246,6 +261,17 @@ textarea {
   border: 1px solid var(--border);
   border-radius: 1.5rem;
   box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-card:hover,
+.feature-card:hover,
+.testimonial-card:hover,
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 140, 255, 0.35);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.16);
 }
 
 /* Browser mockup */
@@ -507,17 +533,29 @@ textarea {
   min-height: 190px;
   margin-bottom: 1rem;
   border-radius: 1.2rem;
-  background: linear-gradient(135deg, rgba(56, 76, 255, 0.2), rgba(91, 143, 255, 0.12));
+  background: linear-gradient(135deg, rgba(79, 123, 255, 0.16), rgba(125, 153, 255, 0.08));
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
 }
 
 .portfolio-img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  min-height: 190px;
+  border-radius: 1.2rem;
   object-fit: cover;
-  object-position: top;
-  border-radius: 1rem;
+  object-position: center;
+  transition: transform 0.3s ease;
   margin-bottom: 1rem;
   display: block;
+}
+
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.03);
 }
 
 .feature-card,

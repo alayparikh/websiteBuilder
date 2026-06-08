@@ -16,6 +16,13 @@ const portfolioItems = [
     tag: 'Travel Agency',
   },
   {
+    name: "Alay's Portfolio",
+    details: 'A polished personal portfolio site showcasing case studies, services, and a modern brand identity.',
+    img: null,
+    url: 'https://alay-s-portfolio.vercel.app',
+    tag: 'Personal Portfolio',
+  },
+  {
     name: 'Your Website',
     details: 'Ready to be built. Get a fast, modern, mobile-friendly site delivered with full handoff in under a week.',
     img: null,
@@ -42,7 +49,9 @@ function PortfolioPage() {
               {item.img ? (
                 <img className="portfolio-img" src={item.img} alt={item.name} loading="lazy" />
               ) : (
-                <div className="portfolio-image" />
+                <div className="portfolio-image">
+                  {item.url ? 'Live site preview' : 'Project preview coming soon'}
+                </div>
               )}
               <p className="eyebrow" style={{ marginBottom: '0.25rem' }}>{item.tag}</p>
               <h3>{item.name}</h3>
