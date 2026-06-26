@@ -15,13 +15,13 @@ const portfolioItems = [
     url: 'https://airwaysworldtravel.vercel.app',
     tag: 'Travel Agency',
   },
-  {
-    name: "Alay's Portfolio",
-    details: 'A polished personal portfolio site showcasing case studies, services, and a modern brand identity.',
-    img: null,
-    url: 'https://alay-s-portfolio.vercel.app',
-    tag: 'Personal Portfolio',
-  },
+  // {
+  //   name: "Alay's Portfolio",
+  //   details: 'A polished personal portfolio site showcasing case studies, services, and a modern brand identity.',
+  //   img: null,
+  //   url: 'https://alay-s-portfolio.vercel.app',
+  //   tag: 'Personal Portfolio',
+  // },
   {
     name: 'Your Website',
     details: 'Ready to be built. Get a fast, modern, mobile-friendly site delivered with full handoff in under a week.',
