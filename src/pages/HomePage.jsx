@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-
-const mockupSlides = [
-  { img: '/portfolio-airways.jpg', url: 'airwaysworldtravel.vercel.app' },
-  { img: '/portfolio-mysanstha.jpg', url: 'info.mysanstha.com' },
-]
+import { heroMockupSlides, portfolioItems } from '../data/portfolioProjects'
 
 const stats = [
   { number: '12+', label: 'Live Sites Built' },
@@ -54,44 +50,11 @@ const testimonials = [
   },
 ]
 
-const portfolioItems = [
-  {
-    name: 'mySanstha',
-    description: 'Full platform for temple and nonprofit management — donations, events, and reporting.',
-    img: '/portfolio-mysanstha.jpg',
-    url: 'https://info.mysanstha.com',
-  },
-  {
-    name: 'Airways World Travel',
-    description: 'Premium travel agency site with services, gallery, and lead capture for a 25-year-old brand.',
-    img: '/portfolio-airways.jpg',
-    url: 'https://airwaysworldtravel.vercel.app',
-  },
-  {
-    name: 'Radiant Control Systems',
-    description: 'SEO and GEO optimized website revamp that closed security loopholes and improved keyword visibility.',
-    img: '/portfolio-radiant-control-systems.png',
-    url: 'https://radiantcontrolsystems.com/',
-  },
-  // {
-  //   name: "Alay's Portfolio",
-  //   description: 'A polished personal portfolio site showcasing design skills, case studies, and service packages.',
-  //   img: null,
-  //   url: 'https://alay-s-portfolio.vercel.app',
-  // },
-  {
-    name: 'Your Website',
-    description: 'Ready to launch your own? Get a fast, modern site built and handed over in under a week.',
-    img: null,
-    url: null,
-  },
-]
-
 function HomePage() {
   const [activeIdx, setActiveIdx] = useState(0)
 
   useEffect(() => {
-    const timer = setInterval(() => setActiveIdx(i => (i + 1) % mockupSlides.length), 3500)
+    const timer = setInterval(() => setActiveIdx(i => (i + 1) % heroMockupSlides.length), 3500)
     return () => clearInterval(timer)
   }, [])
 
@@ -127,14 +90,14 @@ function HomePage() {
                 <span className="dot dot-yellow" />
                 <span className="dot dot-green" />
               </div>
-              <div className="browser-addr">{mockupSlides[activeIdx].url}</div>
+              <div className="browser-addr">{heroMockupSlides[activeIdx].displayUrl}</div>
             </div>
             <div className="browser-img-wrap">
-              {mockupSlides.map((slide, i) => (
+              {heroMockupSlides.map((slide, i) => (
                 <img
-                  key={slide.url}
+                  key={slide.name}
                   src={slide.img}
-                  alt={slide.url}
+                  alt={slide.name}
                   className={`browser-screenshot${i === activeIdx ? ' active' : ''}`}
                   loading={i === 0 ? 'eager' : 'lazy'}
                 />
