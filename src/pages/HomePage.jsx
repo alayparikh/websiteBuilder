@@ -67,6 +67,12 @@ const portfolioItems = [
     img: '/portfolio-airways.jpg',
     url: 'https://airwaysworldtravel.vercel.app',
   },
+  {
+    name: 'Radiant Control Systems',
+    description: 'SEO and GEO optimized website revamp that closed security loopholes and improved keyword visibility.',
+    img: '/portfolio-radiant-control-systems.png',
+    url: 'https://radiantcontrolsystems.com/',
+  },
   // {
   //   name: "Alay's Portfolio",
   //   description: 'A polished personal portfolio site showcasing design skills, case studies, and service packages.',
