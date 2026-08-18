@@ -18,12 +18,12 @@ export const portfolioProjects = [
     tag: 'Organization Platform',
   },
   {
-    name: "Alay's Portfolio",
-    description: 'A polished personal portfolio site showcasing design skills, case studies, and service packages.',
-    details: 'A polished personal portfolio site showcasing case studies, services, and a modern brand identity.',
-    img: '/portfolio-alay.jpg',
-    url: 'https://alay-s-portfolio.vercel.app',
-    displayUrl: 'alay-s-portfolio.vercel.app',
+    name: 'Creative Portfolio',
+    description: 'A polished portfolio concept showcasing design skills, case studies, and service packages.',
+    details: 'A polished portfolio concept showcasing case studies, services, and a modern brand identity.',
+    img: '/portfolio-creative.jpg',
+    url: null,
+    displayUrl: 'portfolio-showcase.vercel.app',
     tag: 'Personal Portfolio',
   },
   {

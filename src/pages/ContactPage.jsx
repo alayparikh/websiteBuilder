@@ -11,7 +11,14 @@ function ContactPage() {
 
     const formData = new FormData(event.target)
     try {
-      const response = await fetch('https://formsubmit.co/ajax/parikhalay1@gmail.com', {
+      const formEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT
+
+      if (!formEndpoint) {
+        setStatus('error')
+        return
+      }
+
+      const response = await fetch(formEndpoint, {
         method: 'POST',
         body: formData,
         headers: {
@@ -51,10 +58,6 @@ function ContactPage() {
             <p>
               I provide full handoff with credentials, hosting guidance, and up to 2 rounds of revisions to make sure you launch with confidence.
             </p>
-            <div className="contact-info">
-              <span>📞 408-483-1223</span>
-              <span>✉️ parikhalay1@gmail.com</span>
-            </div>
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>

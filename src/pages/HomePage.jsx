@@ -34,9 +34,9 @@ const serviceItems = [
 
 const testimonials = [
   {
-    quote: 'Alay delivered a clean, professional site in under a week. Our inquiry rate doubled in the first month.',
+    quote: 'The new site looked clean, professional, and launched in under a week. Our inquiry rate doubled in the first month.',
     name: 'Rahul M.',
-    role: 'Founder, RMConsulting',
+    role: 'Founder, Consulting Agency',
   },
   {
     quote: 'I needed a site fast for a product launch. Got exactly what I wanted — mobile-ready, fast, and polished.',
@@ -84,6 +84,9 @@ function HomePage() {
 
         <div className="hero-visual">
           <div className="browser-mockup">
+            <div className="hero-brand-badge hero-brand-badge-wide" aria-hidden="true">
+              <img src="/Gemini_Generated_Image_obrz37obrz37obrz.jpeg" alt="" />
+            </div>
             <div className="browser-bar">
               <div className="browser-dots">
                 <span className="dot dot-red" />
@@ -226,18 +229,23 @@ function HomePage() {
         <div className="about-panel">
           <div className="about-text">
             <p className="eyebrow">About</p>
-            <h2>Hi, I'm Alay</h2>
+            <h2>Websites built with clarity, speed, and a little spark</h2>
             <p>
-              A software and data professional with 5+ Years of experience and who likes creativity. For which, I build fast, modern websites for small businesses, startups, and consultants who want a
-              professional online presence without the agency price tag.
+              This studio blends clean engineering with sharp visual direction, turning rough ideas
+              into websites that feel polished, credible, and easy to use from the first click.
             </p>
             <p>
-              Every site I build comes with full handoff. You get all credentials, admin access, and
-              up to 2 rounds of revisions so you launch with confidence.
+              Each project is shaped around what matters most: a clear message, smooth mobile
+              experience, fast load times, and a launch process that does not feel complicated.
             </p>
             <Link to="/contact" className="btn btn-primary">
               Work With Me
             </Link>
+          </div>
+          <div className="about-highlights" aria-label="Website build highlights">
+            <span>Clear layout</span>
+            <span>Fast loading</span>
+            <span>Easy handoff</span>
           </div>
         </div>
       </section>

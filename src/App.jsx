@@ -9,19 +9,19 @@ import './styles.css'
 
 const routeMeta = {
   '/': {
-    title: 'WebsByAlay — Professional Web Design',
+    title: 'BuildWise Webs - Professional Web Design',
     description: 'Launch a responsive, SEO-friendly website with professional design, fast delivery, and transparent handoff.',
   },
   '/services': {
-    title: 'Website Services — WebsByAlay',
+    title: 'Website Services - BuildWise Webs',
     description: 'Explore professional website design, e-commerce setup, performance optimization, and site launch support.',
   },
   '/portfolio': {
-    title: 'Portfolio — WebsByAlay',
+    title: 'Portfolio - BuildWise Webs',
     description: 'View sample website projects showing modern layouts, responsive design, and business-focused pages.',
   },
   '/contact': {
-    title: 'Contact — WebsByAlay',
+    title: 'Contact - BuildWise Webs',
     description: 'Send your website project details to get a fast quote and launch a professional online presence.',
   },
 }
@@ -63,19 +63,13 @@ function PageMeta() {
   return null
 }
 
-function Logo() {
+function Logo({ theme }) {
   return (
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="34" height="34" rx="10" fill="#3c5cff"/>
-      <polyline
-        points="6,11 11,23 17,15 23,23 28,11"
-        fill="none"
-        stroke="white"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <img
+      className="logo-mark"
+      src={theme === 'dark' ? '/buildWiseWebsDark.png' : '/buildWiseWebs.png'}
+      alt="BuildWise Webs"
+    />
   )
 }
 
@@ -112,8 +106,7 @@ function App() {
       <div className="app-shell">
         <header className="site-header">
           <div className="brand">
-            <Logo />
-            WebsByAlay
+            <Logo theme={theme} />
           </div>
           <nav className="site-nav">
             {navLinks.map((link) => (
