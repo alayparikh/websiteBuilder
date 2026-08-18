@@ -84,9 +84,6 @@ function HomePage() {
 
         <div className="hero-visual">
           <div className="browser-mockup">
-            <div className="hero-brand-badge hero-brand-badge-wide" aria-hidden="true">
-              <img src="/Gemini_Generated_Image_obrz37obrz37obrz.jpeg" alt="" />
-            </div>
             <div className="browser-bar">
               <div className="browser-dots">
                 <span className="dot dot-red" />
