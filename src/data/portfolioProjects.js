@@ -1,5 +1,16 @@
 export const portfolioProjects = [
   {
+    name: 'HariTech Automations',
+    description: 'Website build and SEO optimization for a USA-India industrial automation systems integrator.',
+    details: 'Full website for a USA-India industrial automation integrator — 18 industry sections, structured service and capability pages, and SEO optimization targeting high-intent engineering keywords.',
+    img: '/portfolio-haritech.webp',
+    imgWidth: 1100,
+    imgHeight: 687,
+    url: 'https://haritechautomations.com/',
+    displayUrl: 'haritechautomations.com',
+    tag: 'Industrial Automation + SEO',
+  },
+  {
     name: 'Radiant Control Systems',
     description: 'SEO and GEO optimized website revamp that closed security loopholes and improved keyword visibility.',
     details: 'Revamped a frequently hacked client website into a secure, SEO and GEO optimized site built for stronger keyword rankings.',
