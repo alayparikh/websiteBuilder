@@ -32,10 +32,16 @@ const services = [
 ]
 
 import { Link } from 'react-router-dom'
+import { servicesFaqs } from '../data/faqData'
+import FaqSection from '../components/FaqSection'
+import Seo from '../components/Seo'
+import { servicesSchema } from '../config/schema'
 
 function ServicesPage() {
   return (
     <div className="page-content">
+      <Seo path="/services" jsonLd={servicesSchema} />
+
       <section className="section page-header">
         <div className="section-intro">
           <p className="eyebrow">Services</p>
@@ -56,6 +62,32 @@ function ServicesPage() {
           ))}
         </div>
       </section>
+      <FaqSection
+        id="services"
+        title="Frequently asked questions"
+        items={servicesFaqs}
+      >
+        <Link to="/faq" className="faq-see-all">See all questions →</Link>
+      </FaqSection>
+
+      <section className="section instagram-promo">
+        <div className="cta-box instagram-promo-box">
+          <div>
+            <p className="eyebrow">Instagram</p>
+            <h2>Follow us on Instagram to stay updated on SEO optimization techniques</h2>
+            <p>Tips, updates, and behind-the-scenes on building fast, search-friendly websites.</p>
+          </div>
+          <a
+            className="btn btn-primary"
+            href="https://www.instagram.com/build_wisewebs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @build_wisewebs
+          </a>
+        </div>
+      </section>
+
       <section className="section cta-panel">
         <div className="cta-box">
           <h2>Need help picking the right option?</h2>
@@ -63,7 +95,7 @@ function ServicesPage() {
             I can help you choose the best website structure for your business, timeline, and budget.
             Book a free consultation and get a custom recommendation.
           </p>
-          <Link to="/contact" className="btn btn-primary">
+          <Link to="/contact#contact-form" className="btn btn-primary">
             Request Consultation
           </Link>
         </div>

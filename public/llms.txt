@@ -1,0 +1,95 @@
+# BuildWise Webs
+
+> Professional website design and development studio. BuildWise Webs builds fast, responsive, SEO-friendly websites for small businesses, startups, and agencies, with full ownership handoff after launch. Works remotely with clients worldwide.
+
+## Services
+- Single-page websites: $150 one-time — responsive design, contact form, domain setup guidance, up to 2 revisions, full handoff with credentials.
+- Multi-page websites, up to 5 pages: $300 one-time — custom design, contact and booking forms, SEO basics, up to 2 revisions, full handoff with credentials.
+- E-commerce setup: product showcases, payment links, order-ready landing pages. Quoted as an add-on.
+- Website redesigns of existing sites, priced with the same packages as a new build.
+- Performance optimization, brand refreshes, and launch support (content guidance, domain setup, hosting advice).
+
+## Key facts
+- Typical delivery time: under 7 days from the point content and requirements are shared.
+- Pricing: one-time payment, no subscriptions or retainers. The client owns the finished website.
+- Payment terms: 50% upfront to begin, 50% on delivery before handoff.
+- Revisions: up to 2 rounds included with every package.
+- Service area: worldwide, fully remote.
+- Communication: email or WhatsApp, replies typically within 24 hours on business days.
+- Hosting fees are paid to the client's chosen provider and are separate from the build price.
+
+## Frequently asked questions
+
+### Pricing & payment
+
+**How much does a website cost?**
+A single-page website from BuildWise Webs starts at $150. A multi-page business website of up to 5 pages starts at $300. Both are one-time payments with no subscriptions, and you own the finished site.
+
+**How does payment work — do I pay everything upfront?**
+BuildWise Webs takes 50% upfront to begin the project and the remaining 50% on delivery, before final handoff. Payment is one-time, with no retainers or monthly fees. Hosting charges from your provider and any add-ons beyond the agreed package are billed separately.
+
+**What's included in the single-page website package?**
+The $150 single-page package includes responsive design, a working contact form, domain setup guidance, up to 2 rounds of revisions, and full handoff with credentials.
+
+**What is the difference between the single-page and multi-page packages?**
+The single-page package ($150) is a focused one-page site, ideal for landing pages or brochure sites. The multi-page package ($300) covers up to 5 pages with custom design, contact and booking forms, and SEO basics — better suited to a full business website.
+
+**What if I need more than 5 pages?**
+The multi-page package covers up to 5 pages. Additional pages are quoted individually based on how much custom design and content each one needs, and are agreed in writing before work starts so the final price never moves.
+
+**Can you add e-commerce or payment features?**
+Yes. E-commerce setup is available as an add-on, covering product showcases, payment links, and order-ready landing pages. It is quoted separately from the base package.
+
+### Process & timeline
+
+**How long does it take to build a website?**
+Most BuildWise Webs projects are delivered in under 7 days from the point content and requirements are shared. Larger multi-page sites and e-commerce add-ons can take longer, and you get a firm timeline before work begins.
+
+**What do you need from me to get started?**
+To start, BuildWise Webs needs your business name and description, the pages you want, any logo and brand colors, your text and images, and two or three examples of websites you like. If you do not have copy or images ready, that is fine — content guidance is included, and the project can begin with what you have.
+
+**How many revisions are included?**
+Every package includes up to 2 rounds of revisions, so the final site matches what you had in mind before launch. Revisions are collected as a single round of feedback each time, which keeps delivery inside the 7-day window.
+
+**I already have a website — can you redesign it?**
+Yes. Redesigns are one of the most common BuildWise Webs projects. Existing content, images, and your domain carry over, and the rebuilt site is priced with the same packages as a new build — $150 for a single page, $300 for up to 5 pages.
+
+**How do we communicate during the project?**
+Projects run over email or WhatsApp, whichever you prefer, with replies typically within 24 hours on business days. You get a preview link as soon as there is something to look at, so you can follow progress rather than wait for a single reveal at the end.
+
+**Do you work with clients outside your area?**
+Yes. BuildWise Webs works remotely with clients worldwide. Everything — briefing, previews, revisions, and handoff — happens online, so location makes no difference to the timeline or the price.
+
+**What kind of websites do you build?**
+BuildWise Webs builds single-page landing sites, multi-page business websites, portfolio sites, and simple e-commerce storefronts, all with responsive, performance-focused code.
+
+### Technical & SEO
+
+**Is the website mobile-friendly and optimized for search engines?**
+Yes. Every BuildWise Webs site is built mobile-first and responsive, and the multi-page package includes SEO basics such as clean heading structure, page metadata, and fast load times.
+
+**Do you handle hosting and domain setup?**
+Domain and hosting guidance is included with every project, so you know exactly how to get your site live and who controls it. Hosting fees themselves are paid to your chosen provider and are separate from the build price.
+
+### Support & ownership
+
+**Do I own my website after it is built?**
+Yes. Every project ends with full handoff including all credentials, so you have complete ownership and control of the site after launch. There is no lock-in and nothing stays in BuildWise Webs’ name.
+
+**Can I update the site myself after handoff?**
+Yes. At handoff you receive every credential plus a short written walkthrough of how to edit your text and images. If you would rather not touch it, BuildWise Webs can handle updates for you as a separate, per-request charge.
+
+**Do you offer ongoing support after launch?**
+Launch support is included with every project — content guidance, domain setup, and hosting advice — plus up to 2 rounds of revisions before handoff. Integrations or add-ons requested after the initial build are quoted separately.
+
+## Contact
+- Email: prkh392@gmail.com
+- Instagram: https://www.instagram.com/build_wisewebs
+- Quote request form: https://buildwisewebs.vercel.app/contact
+
+## Pages
+- Home: https://buildwisewebs.vercel.app/
+- Services: https://buildwisewebs.vercel.app/services
+- Portfolio: https://buildwisewebs.vercel.app/portfolio
+- FAQ: https://buildwisewebs.vercel.app/faq
+- Contact: https://buildwisewebs.vercel.app/contact

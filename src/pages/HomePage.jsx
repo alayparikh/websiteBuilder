@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { heroMockupSlides, portfolioItems } from '../data/portfolioProjects'
+import { homeFaqs } from '../data/faqData'
+import FaqSection from '../components/FaqSection'
+import Seo from '../components/Seo'
+import { homeSchema } from '../config/schema'
 
 const stats = [
   { number: '12+', label: 'Live Sites Built' },
@@ -60,6 +64,8 @@ function HomePage() {
 
   return (
     <div className="page-content">
+      <Seo path="/" jsonLd={homeSchema} />
+
       <section className="hero-section">
         <div className="hero-copy">
           <p className="eyebrow">Professional Websites.</p>
@@ -71,7 +77,7 @@ function HomePage() {
             <Link to="/services" className="btn btn-primary">
               Explore Services
             </Link>
-            <Link to="/contact" className="btn btn-secondary">
+            <Link to="/contact#contact-form" className="btn btn-secondary">
               Contact Me
             </Link>
           </div>
@@ -97,9 +103,13 @@ function HomePage() {
                 <img
                   key={slide.name}
                   src={slide.img}
-                  alt={slide.name}
+                  alt={`${slide.name} website built by BuildWise Webs`}
                   className={`browser-screenshot${i === activeIdx ? ' active' : ''}`}
+                  width={slide.imgWidth}
+                  height={slide.imgHeight}
+                  decoding="async"
                   loading={i === 0 ? 'eager' : 'lazy'}
+                  fetchpriority={i === 0 ? 'high' : undefined}
                 />
               ))}
             </div>
@@ -134,7 +144,7 @@ function HomePage() {
               <li>Up to 2 revisions</li>
               <li>Full handoff with credentials</li>
             </ul>
-            <Link to="/contact" className="btn btn-secondary">Get Started</Link>
+            <Link to="/contact#contact-form" className="btn btn-secondary">Get Started</Link>
           </article>
           <article className="feature-card pricing-card-new pricing-highlighted">
             <span className="plan-badge">Most Popular</span>
@@ -149,7 +159,7 @@ function HomePage() {
               <li>Up to 2 revisions</li>
               <li>Full handoff with credentials</li>
             </ul>
-            <Link to="/contact" className="btn btn-primary">Get Started</Link>
+            <Link to="/contact#contact-form" className="btn btn-primary">Get Started</Link>
           </article>
         </div>
         <p className="pricing-footnote">Hosting charges may apply. Integrations and add-ons charged extra.</p>
@@ -184,7 +194,15 @@ function HomePage() {
           {portfolioItems.map((item) => (
             <article key={item.name} className="portfolio-card">
               {item.img ? (
-                <img className="portfolio-img" src={item.img} alt={item.name} loading="lazy" />
+                <img
+                  className="portfolio-img"
+                  src={item.img}
+                  alt={`${item.name} website built by BuildWise Webs`}
+                  width={item.imgWidth}
+                  height={item.imgHeight}
+                  loading="lazy"
+                  decoding="async"
+                />
               ) : (
                 <div className="portfolio-image">
                   {item.url ? 'Live site preview' : 'Project preview coming soon'}
@@ -197,7 +215,7 @@ function HomePage() {
                   View site →
                 </a>
               ) : (
-                <Link to="/contact" className="portfolio-link">Get started →</Link>
+                <Link to="/contact#contact-form" className="portfolio-link">Get started →</Link>
               )}
             </article>
           ))}
@@ -222,6 +240,14 @@ function HomePage() {
         </div>
       </section>
 
+      <FaqSection
+        id="home"
+        title="Common questions before you start"
+        items={homeFaqs}
+      >
+        <Link to="/faq" className="faq-see-all">See all questions →</Link>
+      </FaqSection>
+
       <section className="section about-section">
         <div className="about-panel">
           <div className="about-text">
@@ -235,7 +261,7 @@ function HomePage() {
               Each project is shaped around what matters most: a clear message, smooth mobile
               experience, fast load times, and a launch process that does not feel complicated.
             </p>
-            <Link to="/contact" className="btn btn-primary">
+            <Link to="/contact#contact-form" className="btn btn-primary">
               Work With Me
             </Link>
           </div>

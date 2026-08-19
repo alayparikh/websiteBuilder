@@ -12,6 +12,16 @@
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
   --body-bg: radial-gradient(circle at top, rgba(31, 84, 255, 0.18), transparent 28%), linear-gradient(180deg, #08101f 0%, #091225 28%, #0b172d 100%);
   --background-secondary: linear-gradient(180deg, rgba(16, 30, 61, 0.96), rgba(10, 18, 37, 0.96));
+
+  /* Ambient layer */
+  --glow-primary: rgba(37, 99, 255, 0.28);
+  --glow-secondary: rgba(80, 140, 255, 0.14);
+  --grid-line: rgba(125, 153, 255, 0.5);
+  --structure-line: rgba(125, 165, 255, 0.55);
+  --edge-accent: rgba(125, 153, 255, 0.45);
+  --grain-opacity: 0.05;
+  --ambient-opacity: 0.9;
+  --structure-opacity: 0.07;
 }
 
 [data-theme='light'] {
@@ -26,14 +36,27 @@
   --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
   --body-bg: radial-gradient(circle at top, rgba(99, 102, 241, 0.14), transparent 30%), linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
   --background-secondary: #ffffff;
+
+  /* Ambient layer — softer indigo so light text stays well above AA contrast */
+  --glow-primary: rgba(79, 70, 229, 0.12);
+  --glow-secondary: rgba(99, 102, 241, 0.08);
+  --grid-line: rgba(79, 70, 229, 0.4);
+  --structure-line: rgba(79, 70, 229, 0.45);
+  --edge-accent: rgba(79, 70, 229, 0.28);
+  --grain-opacity: 0.03;
+  --ambient-opacity: 0.7;
+  --structure-opacity: 0.05;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* Scoped to a class CustomCursor sets only after it mounts and confirms a fine
+   pointer. Without this gate, a JS failure or slow hydration leaves visitors
+   with no cursor at all. */
 @media (pointer: fine) {
-  * {
+  html.custom-cursor-active * {
     cursor: none !important;
   }
 }
@@ -96,6 +119,73 @@ body {
   line-height: 1.7;
 }
 
+/* ---------------------------------------------------------------
+   Ambient background system
+   Three fixed, decorative layers stacked behind all content:
+     body::before        — coloured bloom orbs (the light source)
+     body::after         — architectural perspective rays + dot grid
+     .app-shell::before  — film grain, which also dithers gradient banding
+   All colours come from tokens, so light mode adapts with no extra rules.
+   Fixed pseudo-elements are used rather than `background-attachment: fixed`,
+   which forces a full-viewport repaint on every scroll frame (bad on iOS).
+   --------------------------------------------------------------- */
+body::before,
+body::after,
+.app-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background-image:
+    radial-gradient(60rem 45rem at 82% 6%, var(--glow-primary), transparent 60%),
+    radial-gradient(50rem 40rem at 8% 92%, var(--glow-secondary), transparent 62%);
+  opacity: var(--ambient-opacity);
+  animation: ambient-drift 38s ease-in-out infinite alternate;
+}
+
+body::after {
+  background-image:
+    repeating-conic-gradient(
+      from 196deg at 92% 2%,
+      var(--structure-line) 0deg 0.05deg,
+      transparent 0.05deg 3.6deg
+    ),
+    repeating-conic-gradient(
+      from 26deg at 4% 98%,
+      var(--structure-line) 0deg 0.05deg,
+      transparent 0.05deg 5.5deg
+    ),
+    radial-gradient(circle, var(--grid-line) 1px, transparent 1px);
+  background-size: auto, auto, 26px 26px;
+  opacity: var(--structure-opacity);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 30%, #000 15%, transparent 78%);
+  mask-image: radial-gradient(120% 90% at 50% 30%, #000 15%, transparent 78%);
+}
+
+.app-shell::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: var(--grain-opacity);
+}
+
+@keyframes ambient-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-2.5%, 1.5%, 0) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -122,7 +212,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
   padding: 0.85rem 1rem;
   position: sticky;
   top: 1rem;
@@ -137,6 +227,18 @@ textarea {
 
 [data-theme='light'] .site-header {
   background: rgba(255, 255, 255, 0.96);
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  border-radius: 0.6rem;
+}
+
+.brand-link:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
 }
 
 .brand {
@@ -157,7 +259,8 @@ textarea {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.9rem;
 }
 
 .nav-link {
@@ -168,6 +271,25 @@ textarea {
 
 .nav-link-active {
   color: var(--text);
+}
+
+/* Contact is the conversion endpoint, so it reads as a button rather than a
+   fifth peer link. */
+.nav-link-cta {
+  /* Extra left margin on top of the nav gap: a padded button sitting one plain
+     gap away from a text link reads as glued to it. */
+  margin-left: 0.6rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  background: #3c5cff;
+  color: #ffffff;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-link-cta:hover,
+.nav-link-cta.nav-link-active {
+  background: #2f4bdd;
+  color: #ffffff;
 }
 
 .theme-toggle {
@@ -183,12 +305,36 @@ textarea {
   margin-top: 1rem;
 }
 
-.hero-section,
-.page-header {
+/* The site header is sticky, so anchor targets must reserve room for it or
+   they land underneath it. */
+[id='contact-form'] {
+  scroll-margin-top: 6.5rem;
+}
+
+.hero-section {
+  position: relative;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
   align-items: center;
+  padding: 3rem 0 2.5rem;
+}
+
+/* Localised bloom behind the headline, stronger than the page-wide ambient. */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  left: -14%;
+  top: -18%;
+  width: 78%;
+  height: 128%;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(closest-side, var(--glow-primary), transparent 72%);
+  opacity: 0.75;
+}
+
+.page-header {
   padding: 3rem 0 2.5rem;
 }
 
@@ -299,6 +445,20 @@ textarea {
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(125, 153, 255, 0.12);
+}
+
+/* Angled sheen so the mockup reads as lit glass rather than a flat rectangle. */
+.browser-mockup::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(126deg, rgba(255, 255, 255, 0.14) 0%, transparent 34%, transparent 66%, rgba(125, 153, 255, 0.1) 100%);
+}
+
+[data-theme='light'] .browser-mockup::after {
+  background: linear-gradient(126deg, rgba(255, 255, 255, 0.5) 0%, transparent 38%, transparent 70%, rgba(79, 70, 229, 0.06) 100%);
 }
 
 .browser-bar {
@@ -494,6 +654,111 @@ textarea {
   max-width: 46rem;
 }
 
+/* Lit horizontal seam between major sections — the structural accent from the
+   ambient system, echoing the floor lines of a lit facade. */
+.page-content .section + .section::before,
+.page-content .section + .faq-section::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin: 0 0 3rem;
+  background: linear-gradient(90deg, transparent, var(--edge-accent), transparent);
+}
+
+.faq-page .section.faq-section {
+  padding: 1.75rem 0;
+}
+
+.faq-updated {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.faq-section-footer {
+  margin-top: 1.5rem;
+  max-width: 52rem;
+}
+
+.faq-see-all {
+  font-weight: 700;
+  color: var(--link);
+}
+
+.faq-see-all:hover {
+  text-decoration: underline;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.footer-link {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer-link:hover {
+  color: var(--link);
+}
+
+/* Spam honeypot — must stay in the DOM and out of sight and tab order. */
+.honeypot-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  max-width: 52rem;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-toggle {
+  flex-shrink: 0;
+  color: var(--link);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.faq-answer {
+  margin: 0;
+  padding: 0 1.4rem 1.2rem;
+  color: var(--muted);
+}
+
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -558,6 +823,10 @@ textarea {
 
 .portfolio-img {
   width: 100%;
+  /* height:auto is required: the width/height attributes on the <img> (there for
+     CLS) act as presentational hints, and without this the height attribute
+     would set the rendered height and object-fit:cover would crop hard. */
+  height: auto;
   min-height: 190px;
   border-radius: 1.2rem;
   object-fit: cover;
@@ -763,7 +1032,53 @@ textarea {
   font-size: 0.95rem;
 }
 
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-social:hover {
+  color: var(--link);
+}
+
+.instagram-promo-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.25rem;
+}
+
+.instagram-promo-box h2 {
+  margin: 0.4rem 0;
+}
+
+.instagram-promo-box .btn {
+  flex-shrink: 0;
+}
+
+.footer-copyright {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
 @media (max-width: 980px) {
+  .site-nav {
+    gap: 1.1rem;
+  }
+
+  .nav-link-cta {
+    margin-left: 0.25rem;
+    padding: 0.45rem 1rem;
+  }
+
   .hero-section,
   .page-header,
   .contact-panel,

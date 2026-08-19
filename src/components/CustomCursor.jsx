@@ -10,6 +10,8 @@ function CustomCursor() {
     if (!dot || !ring) return
     if (!window.matchMedia('(pointer: fine)').matches) return
 
+    document.documentElement.classList.add('custom-cursor-active')
+
     let mouseX = 0
     let mouseY = 0
     let ringX = 0
@@ -47,6 +49,7 @@ function CustomCursor() {
     raf = requestAnimationFrame(tick)
 
     return () => {
+      document.documentElement.classList.remove('custom-cursor-active')
       document.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseleave', onLeave)
       document.removeEventListener('mouseenter', onEnter)

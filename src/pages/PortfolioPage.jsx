@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
 import { portfolioItems } from '../data/portfolioProjects'
+import Seo from '../components/Seo'
+import { portfolioSchema } from '../config/schema'
 
 function PortfolioPage() {
   return (
     <div className="page-content">
+      <Seo path="/portfolio" jsonLd={portfolioSchema(portfolioItems)} />
+
       <section className="section page-header">
         <div className="section-intro">
           <p className="eyebrow">Portfolio</p>
@@ -17,7 +21,15 @@ function PortfolioPage() {
           {portfolioItems.map((item) => (
             <article key={item.name} className="portfolio-card">
               {item.img ? (
-                <img className="portfolio-img" src={item.img} alt={item.name} loading="lazy" />
+                <img
+                  className="portfolio-img"
+                  src={item.img}
+                  alt={`${item.name} website built by BuildWise Webs`}
+                  width={item.imgWidth}
+                  height={item.imgHeight}
+                  loading="lazy"
+                  decoding="async"
+                />
               ) : (
                 <div className="portfolio-image">
                   {item.url ? 'Live site preview' : 'Project preview coming soon'}
@@ -31,7 +43,7 @@ function PortfolioPage() {
                   View live site →
                 </a>
               ) : (
-                <Link to="/contact" className="portfolio-link">Start your project →</Link>
+                <Link to="/contact#contact-form" className="portfolio-link">Start your project →</Link>
               )}
             </article>
           ))}
