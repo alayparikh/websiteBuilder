@@ -28,8 +28,8 @@ export const portfolioProjects = [
     img: '/portfolio-creative.webp',
     imgWidth: 1100,
     imgHeight: 630,
-    url: null,
-    displayUrl: 'portfolio-showcase.vercel.app',
+    url: 'https://alay-s-portfolio-swe-ai.vercel.app/',
+    displayUrl: 'alay-AI-portfolio.com',
     tag: 'Personal Portfolio',
   },
   {
