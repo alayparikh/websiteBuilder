@@ -1,9 +1,11 @@
 /* Notifies Bing (and other IndexNow participants) that pages changed.
    Run after a deploy: `npm run indexnow`. Google does not participate. */
 
+import { indexableRoutes } from '../src/config/site.js'
+
 const HOST = 'buildwisewebs.vercel.app'
 const KEY = '5991103c2a1770b5d6fc59a3a19d3b5d'
-const ROUTES = ['/', '/services', '/portfolio', '/contact', '/faq']
+const ROUTES = indexableRoutes
 
 const body = {
   host: HOST,

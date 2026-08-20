@@ -18,6 +18,60 @@
 - Communication: email or WhatsApp, replies typically within 24 hours on business days.
 - Hosting fees are paid to the client's chosen provider and are separate from the build price.
 
+## Service pages
+
+### Landing Page Design — $150 one-time
+https://buildwisewebs.vercel.app/services/landing-page-design
+A focused one-page website built to convert: responsive design, working contact form, two revisions, full handoff. $150 one-time, live in a week.
+Included: Custom responsive design, built to your brand rather than a stock template; A working contact form that delivers straight to your inbox; Mobile-first layout tested across phone, tablet, and desktop widths; Optimized images in modern formats with correct dimensions set; Page title, meta description, and heading structure set up properly; Domain setup guidance so you know exactly how to point your name at it; Up to 2 rounds of revisions before launch; Full handoff with every credential — nothing stays in my name.
+Not included: Hosting fees, which you pay to your own provider and keep control of; Copywriting from scratch, though content guidance is included; Ongoing monthly maintenance — there is no retainer to sign.
+
+### Multi-Page Business Websites — $300 one-time
+https://buildwisewebs.vercel.app/services/business-website
+Up to five custom pages with contact and booking forms, SEO basics, two revisions, and full credential handoff. $300 one-time, delivered in under 7 days.
+Included: Up to five custom-designed pages, each written and laid out for its own purpose; Contact form plus booking-style forms where the enquiry needs structure; Per-page titles, meta descriptions, and clean heading hierarchy; Sitemap and robots.txt generated and submitted to search engines; Internal linking between pages so nothing is orphaned; Mobile-first responsive layouts across every page; Domain and hosting setup guidance; Up to 2 rounds of revisions before launch; Full handoff with every credential and a written walkthrough for editing text and images.
+Not included: Hosting fees, paid to your own provider so you keep control; Pages beyond the fifth, which are quoted individually in writing first; E-commerce checkout, available as a separate add-on.
+
+### E-commerce Setup — Quoted as an add-on
+https://buildwisewebs.vercel.app/services/ecommerce-setup
+Product showcases, payment links, and order-ready landing pages added to your site. Quoted as an add-on, agreed in writing before work starts.
+Included: Product showcase pages with optimized images and real descriptions; Payment links wired to your own payment provider account; Order-ready landing pages for individual products or packages; Product structured data so search engines can read prices and availability; Mobile-first layouts, since most product browsing happens on a phone; Test transactions run before launch; Full handoff of every credential, including the payment provider connection.
+Not included: Payment provider transaction fees, which you pay directly; Large multi-variant inventory systems with live stock synchronisation; Ongoing catalogue updates after handoff, quoted per request.
+
+### Website Redesign — From $150 one-time
+https://buildwisewebs.vercel.app/services/website-redesign
+Rebuild an outdated, slow, or insecure site on modern foundations. Your domain and content carry over. From $150 single page, $300 up to five pages.
+Included: Full inventory of existing URLs before any rebuild begins; Permanent redirects from old addresses to new ones for every moved page; Existing content, images, and testimonials migrated across; Your domain pointed at the new site, with the registrar account staying yours; Rebuilt heading structure, metadata, and internal linking; Modern image formats, correct sizing, and mobile-first layouts; Static build with no plugin layer and no admin panel to attack; Up to 2 rounds of revisions, and full credential handoff.
+Not included: Recovering a domain you have genuinely lost access to; Cleaning malware from an existing site — the rebuild replaces it instead; Migrating a large database-driven application.
+
+### Performance Optimization — Quoted per site
+https://buildwisewebs.vercel.app/services/performance-optimization
+Make an existing site load fast on mobile. Image, layout-shift, and render-blocking fixes, measured before and after. Quoted per site.
+Included: Baseline measurement on a simulated mobile connection before any change; Image conversion, resizing, and explicit dimensions to stop layout shift; Lazy loading below the fold with the main above-fold image prioritised; Render-blocking scripts and styles moved off the critical path; Third-party and analytics scripts deferred behind your own content; Font loading adjusted so text stays readable while fonts download; After measurement, with the before and after numbers side by side.
+Not included: Server or hosting upgrades, which stay under your account and billing; Rewriting a heavy third-party platform — a rebuild is quoted instead; Guaranteed ranking improvements, which nobody can honestly promise.
+
+## Guides
+
+### What a small business website actually costs
+https://buildwisewebs.vercel.app/blog/what-a-small-business-website-costs
+Published prices for the same-sounding job range from a few hundred dollars to several thousand. The spread is real, and it is explainable.
+Updated 2026-08-20.
+
+### One-time payment vs monthly website subscriptions
+https://buildwisewebs.vercel.app/blog/one-time-payment-vs-monthly-website-subscriptions
+A $49 monthly plan is $1,764 over three years. Sometimes that is good value. Here is how to tell which case you are in.
+Updated 2026-08-20.
+
+### Single-page vs multi-page: which one does your business need?
+https://buildwisewebs.vercel.app/blog/single-page-vs-multi-page-website
+The honest test is not how big your business is. It is how many different questions your visitors arrive with.
+Updated 2026-08-20.
+
+### What to prepare before hiring a web designer
+https://buildwisewebs.vercel.app/blog/what-to-prepare-before-hiring-a-web-designer
+Almost every website project that runs late runs late for the same reason, and it is not the design.
+Updated 2026-08-20.
+
 ## Frequently asked questions
 
 ### Pricing & payment
@@ -69,7 +123,7 @@ BuildWise Webs builds single-page landing sites, multi-page business websites, p
 Yes. Every BuildWise Webs site is built mobile-first and responsive, and the multi-page package includes SEO basics such as clean heading structure, page metadata, and fast load times.
 
 **Do you handle hosting and domain setup?**
-Domain and hosting guidance is included with every project, so you know exactly how to get your site live and who controls it. Hosting fees themselves are paid to your chosen provider and are separate from the build price.
+Domain and hosting guidance is included with every project, so you know exactly how to get your site live and who controls it. Hosting fees themselves are paid to your chosen provider and are separate from the build price. (We offer few FREE hosting options as per your needs.)
 
 ### Support & ownership
 
@@ -84,12 +138,22 @@ Launch support is included with every project — content guidance, domain setup
 
 ## Contact
 - Email: prkh392@gmail.com
-- Instagram: https://www.instagram.com/build_wisewebs
+- Instagram: https://www.instagram.com/buildwise_webs
 - Quote request form: https://buildwisewebs.vercel.app/contact
 
 ## Pages
-- Home: https://buildwisewebs.vercel.app/
-- Services: https://buildwisewebs.vercel.app/services
-- Portfolio: https://buildwisewebs.vercel.app/portfolio
-- FAQ: https://buildwisewebs.vercel.app/faq
-- Contact: https://buildwisewebs.vercel.app/contact
+- BuildWise Webs — Professional Web Design from $150: https://buildwisewebs.vercel.app/
+- Website Design Services & Pricing — BuildWise Webs: https://buildwisewebs.vercel.app/services
+- Landing Page Design from $150 — BuildWise Webs: https://buildwisewebs.vercel.app/services/landing-page-design
+- Small Business Website Design from $300 — BuildWise Webs: https://buildwisewebs.vercel.app/services/business-website
+- Small Business E-commerce Setup — BuildWise Webs: https://buildwisewebs.vercel.app/services/ecommerce-setup
+- Website Redesign from $150 — BuildWise Webs: https://buildwisewebs.vercel.app/services/website-redesign
+- Website Speed Optimization — BuildWise Webs: https://buildwisewebs.vercel.app/services/performance-optimization
+- Website Portfolio & Client Projects — BuildWise Webs: https://buildwisewebs.vercel.app/portfolio
+- Website Guides & Pricing Advice — BuildWise Webs: https://buildwisewebs.vercel.app/blog
+- What a Small Business Website Actually Costs: https://buildwisewebs.vercel.app/blog/what-a-small-business-website-costs
+- One-Time Website Payment vs Monthly Subscription: https://buildwisewebs.vercel.app/blog/one-time-payment-vs-monthly-website-subscriptions
+- Single-Page vs Multi-Page Website — Which You Need: https://buildwisewebs.vercel.app/blog/single-page-vs-multi-page-website
+- What to Prepare Before Hiring a Web Designer: https://buildwisewebs.vercel.app/blog/what-to-prepare-before-hiring-a-web-designer
+- Website Design FAQ — Pricing, Timeline & Process: https://buildwisewebs.vercel.app/faq
+- Get a Free Website Quote — BuildWise Webs: https://buildwisewebs.vercel.app/contact

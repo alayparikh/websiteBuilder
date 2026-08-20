@@ -18,6 +18,12 @@ function FaqPage() {
             it takes, how payment works, and what you own once it launches.
           </p>
           <p className="faq-updated">Last updated {FAQ_UPDATED}</p>
+          <p className="section-footnote">
+            Looking for detail on a specific service? <Link to="/services">Every package and what it
+            includes</Link> is listed separately, and the <Link to="/blog">guides</Link> go deeper on{' '}
+            <Link to="/blog/what-a-small-business-website-costs">what a website costs</Link> and{' '}
+            <Link to="/blog/what-to-prepare-before-hiring-a-web-designer">what to prepare first</Link>.
+          </p>
         </div>
       </section>
 
@@ -28,7 +34,6 @@ function FaqPage() {
           eyebrow="Questions"
           title={category.title}
           items={category.items}
-          emitSchema={false}
           defaultOpen={-1}
         />
       ))}

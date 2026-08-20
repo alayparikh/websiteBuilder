@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { portfolioItems } from '../data/portfolioProjects'
+import { serviceDetails } from '../data/serviceDetails'
 import Seo from '../components/Seo'
 import { portfolioSchema } from '../config/schema'
 
@@ -17,6 +18,16 @@ function PortfolioPage() {
       </section>
 
       <section className="section">
+        {/* An H2 before the project cards so the outline runs H1 → H2 → H3
+            rather than jumping a level straight into the card headings. */}
+        <div className="section-intro">
+          <p className="eyebrow">Recent work</p>
+          <h2>Live client websites</h2>
+          <p>
+            Every site below is online and reachable — no mockups. Each one was delivered on the same
+            terms as any other project: one-time price, two revision rounds, and full credential handoff.
+          </p>
+        </div>
         <div className="grid grid-3">
           {portfolioItems.map((item) => (
             <article key={item.name} className="portfolio-card">
@@ -47,6 +58,37 @@ function PortfolioPage() {
               )}
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-intro">
+          <p className="eyebrow">Services</p>
+          <h2>The work behind these projects</h2>
+          <p>Each project used one or more of these. Every service page lists what is included and what it costs.</p>
+        </div>
+        <div className="grid grid-3">
+          {serviceDetails.map((service) => (
+            <article key={service.slug} className="feature-card">
+              <h3>
+                <Link to={`/services/${service.slug}`}>{service.cardTitle}</Link>
+              </h3>
+              <p>{service.cardDescription}</p>
+              <p className="plan-note">{service.priceLabel}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section cta-panel">
+        <div className="cta-box">
+          <h2>Want something like these?</h2>
+          <p>
+            Send your project details for a fixed quote, usually within 24 hours. If you are still
+            deciding on scope, <Link to="/services">compare the packages</Link> or read{' '}
+            <Link to="/blog/what-to-prepare-before-hiring-a-web-designer">what to prepare first</Link>.
+          </p>
+          <Link to="/contact#contact-form" className="btn btn-primary">Start your project</Link>
         </div>
       </section>
     </div>

@@ -379,11 +379,30 @@ textarea {
   color: var(--muted);
 }
 
-.hero-actions,
-.cta-panel .cta-box {
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+/* Heading, then supporting copy, then the button — stacked. These shared a rule
+   with .hero-actions, which laid the box out as a row: the h2 and the paragraph
+   ended up side by side and the button wrapped onto a line of its own. */
+.cta-panel .cta-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.cta-panel .cta-box h2,
+.cta-panel .cta-box p {
+  margin: 0;
+  max-width: 62ch;
+}
+
+.cta-panel .cta-box .btn {
+  margin-top: 0.4rem;
 }
 
 .btn {
@@ -1200,4 +1219,255 @@ textarea {
     top: 0.75rem;
   }
 
+}
+
+/* ---------------------------------------------------------------------------
+   Service detail, blog, and long-form content
+   Added alongside the /services/<slug> and /blog routes. Everything below
+   reuses the existing theme tokens so both palettes stay in sync.
+--------------------------------------------------------------------------- */
+
+/* Available to screen readers and to the accessibility tree, removed from the
+   visual layout — used for headings that exist to keep the outline complete. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.breadcrumbs {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs li + li::before {
+  content: '/';
+  margin-right: 0.65rem;
+  color: var(--border);
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+.breadcrumbs [aria-current='page'] {
+  color: var(--text);
+}
+
+.prose {
+  max-width: 68ch;
+}
+
+.prose p {
+  margin: 0 0 1.15rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.prose .lead {
+  font-size: 1.08rem;
+  color: var(--text);
+}
+
+.prose h2 {
+  margin: 2.5rem 0 1rem;
+}
+
+.prose section:first-of-type h2 {
+  margin-top: 1.5rem;
+}
+
+.prose a {
+  color: var(--link);
+}
+
+.service-section h2 {
+  margin-bottom: 1rem;
+}
+
+.service-price-line {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+.service-price-line strong {
+  color: var(--text);
+}
+
+.section-footnote {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.section-footnote a,
+.pricing-footnote a {
+  color: var(--link);
+}
+
+/* Plain variant drops the checkmark, since these lists are exclusions rather
+   than features and a tick would read as the opposite of the meaning. */
+.checklist-plain li::before {
+  content: '–';
+  color: var(--muted);
+}
+
+.included-grid .feature-card {
+  align-content: start;
+}
+
+.process-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.process-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1.1rem;
+  background: var(--card);
+}
+
+.process-list h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.process-list p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.process-number {
+  flex: 0 0 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--chip-bg);
+  border: 1px solid var(--border);
+  color: var(--eyebrow);
+  font-weight: 600;
+}
+
+/* Wide content scrolls inside its own container so the page body never gains a
+   horizontal scrollbar on a phone. */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: 1.1rem;
+  background: var(--card);
+}
+
+.compare-table {
+  width: 100%;
+  min-width: 40rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  color: var(--text);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.compare-table tbody th {
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.compare-table td {
+  color: var(--text);
+}
+
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.compare-other {
+  color: var(--muted);
+}
+
+.blog-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.blog-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.blog-card h3 a:hover {
+  color: var(--link);
+}
+
+.blog-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.feature-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.feature-card h3 a:hover {
+  color: var(--link);
+}
+
+.instagram-promo-title {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 680px) {
+  .process-list li {
+    padding: 1.1rem 1.15rem;
+  }
+
+  .prose .lead {
+    font-size: 1rem;
+  }
 }

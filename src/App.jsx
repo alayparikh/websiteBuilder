@@ -5,10 +5,15 @@ import ServicesPage from './pages/ServicesPage'
 import PortfolioPage from './pages/PortfolioPage'
 import ContactPage from './pages/ContactPage'
 import FaqPage from './pages/FaqPage'
+import BlogIndexPage from './pages/BlogIndexPage'
+import BlogPostPage from './pages/BlogPostPage'
+import ServiceDetailPage from './pages/ServiceDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
+import { serviceDetails } from './data/serviceDetails'
+import { blogPosts } from './data/blogPosts'
 import CustomCursor from './components/CustomCursor'
 import ScrollToTop from './components/ScrollToTop'
-import { INSTAGRAM_URL } from './config/site'
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from './config/site'
 import './styles.css'
 
 function Logo({ theme, onNavigate }) {
@@ -29,6 +34,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
+  { href: '/blog', label: 'Guides' },
   { href: '/faq', label: 'FAQ' },
   // Styled as a CTA so it stays the visual endpoint of the nav now that there
   // are five items competing for attention.
@@ -113,11 +119,12 @@ function Layout() {
               <circle cx="12" cy="12" r="4.3" stroke="currentColor" strokeWidth="1.8" />
               <circle cx="17.35" cy="6.65" r="1.15" fill="currentColor" />
             </svg>
-            @build_wisewebs
+            @{INSTAGRAM_HANDLE}
           </a>
           <nav className="footer-nav" aria-label="Footer">
             <NavLink to="/services" className="footer-link" onClick={handleNavClick('/services')}>Services</NavLink>
             <NavLink to="/portfolio" className="footer-link" onClick={handleNavClick('/portfolio')}>Portfolio</NavLink>
+            <NavLink to="/blog" className="footer-link" onClick={handleNavClick('/blog')}>Guides</NavLink>
             <NavLink to="/faq" className="footer-link" onClick={handleNavClick('/faq')}>FAQ</NavLink>
             <NavLink to="/contact" className="footer-link" onClick={handleNavClick('/contact')}>Contact</NavLink>
           </nav>
@@ -137,6 +144,20 @@ export const routes = [
     children: [
       { index: true, element: <HomePage />, entry: 'src/pages/HomePage.jsx' },
       { path: 'services', element: <ServicesPage />, entry: 'src/pages/ServicesPage.jsx' },
+      /* Explicit routes rather than a `:slug` param: every service and post is
+         known at build time, so the SSG pass needs no getStaticPaths hook and
+         each URL is a real prerendered file. */
+      ...serviceDetails.map((service) => ({
+        path: `services/${service.slug}`,
+        element: <ServiceDetailPage service={service} />,
+        entry: 'src/pages/ServiceDetailPage.jsx',
+      })),
+      { path: 'blog', element: <BlogIndexPage />, entry: 'src/pages/BlogIndexPage.jsx' },
+      ...blogPosts.map((post) => ({
+        path: `blog/${post.slug}`,
+        element: <BlogPostPage post={post} />,
+        entry: 'src/pages/BlogPostPage.jsx',
+      })),
       { path: 'portfolio', element: <PortfolioPage />, entry: 'src/pages/PortfolioPage.jsx' },
       { path: 'contact', element: <ContactPage />, entry: 'src/pages/ContactPage.jsx' },
       { path: 'faq', element: <FaqPage />, entry: 'src/pages/FaqPage.jsx' },

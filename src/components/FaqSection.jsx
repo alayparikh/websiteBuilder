@@ -1,20 +1,13 @@
 import { useState } from 'react'
-import { Head } from 'vite-react-ssg'
-import { faqSectionSchema } from '../config/schema'
 
-function FaqSection({ id, eyebrow = 'FAQ', title, items, emitSchema = true, defaultOpen = 0, children }) {
+/* Renders question/answer accordions only. FAQPage markup deliberately lives
+   with the page that owns the canonical answers (/faq, and each service page
+   for its own unique questions) so the same Q&A is never marked up twice. */
+function FaqSection({ id, eyebrow = 'FAQ', title, items, defaultOpen = 0, children }) {
   const [openIndex, setOpenIndex] = useState(defaultOpen)
 
   return (
-    <section className="section faq-section">
-      {emitSchema && (
-        <Head>
-          <script type="application/ld+json">
-            {JSON.stringify(faqSectionSchema(id, items))}
-          </script>
-        </Head>
-      )}
-
+    <section className="section faq-section" id={id ? `faq-${id}` : undefined}>
       <div className="section-intro">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>

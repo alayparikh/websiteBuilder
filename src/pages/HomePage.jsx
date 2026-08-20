@@ -14,26 +14,32 @@ const stats = [
   { number: '$0', label: 'Hidden Fees' },
 ]
 
+/* Each card points at the service page that covers it in full, so the homepage
+   feeds the deeper pages instead of dead-ending at the contact form. */
 const serviceItems = [
   {
     icon: 'landing',
     title: 'Landing Pages',
     description: 'Fast, modern single-page websites for startups, agencies, and product launches.',
+    href: '/services/landing-page-design',
   },
   {
     icon: 'business',
     title: 'Business Websites',
     description: 'Multi-page sites with About, Services, Portfolio, Contact and conversion-focused sections.',
+    href: '/services/business-website',
   },
   {
     icon: 'ecommerce',
     title: 'E-commerce Basics',
     description: 'Product catalogs, cart setup, payment links, and store-ready landing pages.',
+    href: '/services/ecommerce-setup',
   },
   {
     icon: 'brand',
     title: 'Brand Refresh',
     description: 'Complete website redesigns that improve trust, clarity, and customer engagement.',
+    href: '/services/website-redesign',
   },
 ]
 
@@ -70,9 +76,10 @@ function HomePage() {
       <section className="hero-section">
         <div className="hero-copy">
           <p className="eyebrow">Professional Websites.</p>
-          <h1>Powerful presence for your business</h1>
+          <h1>Website design for small businesses, from $150</h1>
           <p className="hero-text">
-            Modern, fast, responsive websites designed to grow your brand and convert visitors into customers.
+            A powerful presence for your business! Modern, fast, responsive websites designed to grow
+            your brand and convert visitors into customers. One time payment, live in under a week.
           </p>
           <div className="hero-actions">
             <Link to="/services" className="btn btn-primary">
@@ -136,7 +143,7 @@ function HomePage() {
         <div className="grid grid-2 pricing-grid">
           <article className="feature-card pricing-card-new">
             <h3>Single Page</h3>
-            <p className="price-large">$150</p>
+            <p className="price-large">$100</p>
             <p className="plan-note">One-time · Full ownership</p>
             <ul className="checklist">
               <li>Responsive design</li>
@@ -153,17 +160,22 @@ function HomePage() {
             <p className="price-large">$300</p>
             <p className="plan-note">One-time · Full ownership</p>
             <ul className="checklist">
-              <li>Up to 5 pages</li>
+              <li>Up to 8 pages</li>
               <li>Custom design</li>
-              <li>Contact + booking forms</li>
+              <li> WhatsApp integration + booking forms</li>
               <li>SEO basics included</li>
-              <li>Up to 2 revisions</li>
+              <li>Up to 3 revisions</li>
               <li>Full handoff with credentials</li>
             </ul>
             <Link to="/contact#contact-form" className="btn btn-primary">Get Started</Link>
           </article>
         </div>
-        <p className="pricing-footnote">Hosting charges may apply. Integrations and add-ons charged extra.</p>
+        <p className="pricing-footnote">
+          Hosting charges may apply. Integrations and add-ons charged extra. Payment terms, revisions,
+          and what happens at handoff are covered in the <Link to="/faq">FAQ</Link>, and{' '}
+          <Link to="/blog/what-a-small-business-website-costs">what a website actually costs</Link>{' '}
+          explains why quotes vary so widely.
+        </p>
       </section>
 
       <section className="section intro-block">
@@ -179,11 +191,19 @@ function HomePage() {
           {serviceItems.map((item) => (
             <article key={item.title} className="feature-card">
               <span className="card-icon card-icon-tile"><ServiceIcon name={item.icon} /></span>
-              <h3>{item.title}</h3>
+              <h3>
+                <Link to={item.href}>{item.title}</Link>
+              </h3>
               <p>{item.description}</p>
+              <Link to={item.href} className="portfolio-link">What is included →</Link>
             </article>
           ))}
         </div>
+        <p className="section-footnote">
+          Not sure which fits? <Link to="/blog/single-page-vs-multi-page-website">Single page vs
+          multi-page</Link> walks through the decision, or see <Link to="/services">every service and
+          what it costs</Link>.
+        </p>
       </section>
 
       <section className="section portfolio-preview">
@@ -221,6 +241,9 @@ function HomePage() {
             </article>
           ))}
         </div>
+        <p className="section-footnote">
+          <Link to="/portfolio">See the full portfolio with project details →</Link>
+        </p>
       </section>
 
       <section className="section testimonials-section">
