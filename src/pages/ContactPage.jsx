@@ -86,6 +86,16 @@ function ContactPage() {
               <input name="email" type="email" placeholder="Your email" autoComplete="email" required />
             </label>
             <label>
+              <span>Phone <span className="label-optional">(optional)</span></span>
+              <input
+                name="phone"
+                type="tel"
+                placeholder="Your phone or WhatsApp number"
+                autoComplete="tel"
+                inputMode="tel"
+              />
+            </label>
+            <label>
               Project details
               <textarea name="message" placeholder="Tell me about your website needs" rows="5" required />
             </label>

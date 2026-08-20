@@ -22,6 +22,14 @@
   --grain-opacity: 0.05;
   --ambient-opacity: 0.9;
   --structure-opacity: 0.07;
+
+  /* Accents that used to be hardcoded for the dark palette only. */
+  --eyebrow: #84a9ff;
+  --check: #63b3ff;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.1);
+  --btn-secondary-border: rgba(255, 255, 255, 0.16);
+  --chip-bg: rgba(255, 255, 255, 0.07);
+  --placeholder: #94a3ff;
 }
 
 [data-theme='light'] {
@@ -30,7 +38,7 @@
   --surface-strong: #e2e8f0;
   --text: #0f172a;
   --muted: #64748b;
-  --border: rgba(148, 163, 184, 0.25);
+  --border: rgba(100, 116, 139, 0.4);
   --card: rgba(255, 255, 255, 0.9);
   --link: #4f46e5;
   --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
@@ -46,6 +54,14 @@
   --grain-opacity: 0.03;
   --ambient-opacity: 0.7;
   --structure-opacity: 0.05;
+
+  /* Light values chosen for WCAG AA on the near-white page background. */
+  --eyebrow: #4338ca;
+  --check: #4f46e5;
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-border: rgba(71, 85, 105, 0.35);
+  --chip-bg: rgba(79, 70, 229, 0.07);
+  --placeholder: #6b7280;
 }
 
 * {
@@ -229,6 +245,17 @@ textarea {
   background: rgba(255, 255, 255, 0.96);
 }
 
+/* var(--surface) is near-white in light mode, so the toggle vanished into the
+   equally near-white header. */
+[data-theme='light'] .theme-toggle {
+  background: #eef2f7;
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+[data-theme='light'] .theme-toggle:hover {
+  background: #e2e8f0;
+}
+
 .brand-link {
   display: inline-flex;
   align-items: center;
@@ -377,9 +404,9 @@ textarea {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--btn-secondary-bg);
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: var(--btn-secondary-border);
 }
 
 .btn-secondary:hover,
@@ -395,7 +422,7 @@ textarea {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.23em;
-  color: #84a9ff;
+  color: var(--eyebrow);
   font-size: 0.82rem;
   margin-bottom: 0.75rem;
 }
@@ -569,6 +596,12 @@ textarea {
   background: linear-gradient(135deg, rgba(60, 92, 255, 0.1), rgba(125, 153, 255, 0.04));
 }
 
+/* Needs the extra class: `.feature-card p` above sets --muted and would
+   otherwise win on specificity, rendering the headline price as grey. */
+.feature-card .price-large {
+  color: var(--text);
+}
+
 .price-large {
   font-size: 3rem;
   font-weight: 800;
@@ -602,6 +635,44 @@ textarea {
   display: block;
   margin-bottom: 0.75rem;
   line-height: 1;
+}
+
+/* SVG variant: sits in a tinted rounded tile so a thin stroke icon carries the
+   same visual weight the emoji had. */
+.card-icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, rgba(60, 92, 255, 0.18), rgba(125, 153, 255, 0.07));
+  border: 1px solid var(--border);
+  color: var(--link);
+}
+
+.card-icon-svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: block;
+}
+
+.feature-card:hover .card-icon-svg {
+  transform: scale(1.06);
+}
+
+.card-icon-svg {
+  transition: transform 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-icon-svg {
+    transition: none;
+  }
+
+  .feature-card:hover .card-icon-svg {
+    transform: none;
+  }
 }
 
 .pricing-card {
@@ -804,7 +875,7 @@ textarea {
   content: '✓';
   position: absolute;
   left: 0;
-  color: #63b3ff;
+  color: var(--check);
 }
 
 .portfolio-image {
@@ -931,7 +1002,12 @@ textarea {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: #94a3ff;
+  color: var(--placeholder);
+}
+
+.label-optional {
+  font-weight: 400;
+  color: var(--muted);
 }
 
 .form-status {
@@ -1019,7 +1095,7 @@ textarea {
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--chip-bg);
   color: var(--text);
   font-weight: 700;
   text-align: center;

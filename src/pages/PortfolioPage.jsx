@@ -12,7 +12,7 @@ function PortfolioPage() {
         <div className="section-intro">
           <p className="eyebrow">Portfolio</p>
           <h1>Real websites built for real clients</h1>
-          <p>Each project is built from scratch — tailored design, clean code, and full handoff with credentials.</p>
+          <p>Each project is built from scratch! Tailored design, clean code, and full handoff with credentials.</p>
         </div>
       </section>
 

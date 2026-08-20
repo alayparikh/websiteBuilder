@@ -1,7 +1,7 @@
 export const portfolioProjects = [
   {
     name: 'HariTech Automations',
-    description: 'Website build and SEO optimization for a USA-India industrial automation systems integrator.',
+    description: 'Transformed a generic layout into a high intent, cross border lead generation engine for industrial systems integrator.',
     details: 'Full website for a USA-India industrial automation integrator — 18 industry sections, structured service and capability pages, and SEO optimization targeting high-intent engineering keywords.',
     img: '/portfolio-haritech.webp',
     imgWidth: 1100,
@@ -23,7 +23,7 @@ export const portfolioProjects = [
   },
   {
     name: 'mySanstha',
-    description: 'Full platform for temple and nonprofit management — donations, events, and reporting.',
+    description: 'Full platform for temple and nonprofit management. Donations, events, and reporting. All in one place.',
     details: 'Full platform for temple and nonprofit management — donations, events, POS, and compliance reporting.',
     img: '/portfolio-mysanstha.webp',
     imgWidth: 1100,

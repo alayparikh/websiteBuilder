@@ -1,31 +1,31 @@
 const services = [
   {
-    icon: '🎨',
+    icon: 'design',
     title: 'Website Design',
     description: 'Custom design work with responsive layouts, brand style, and strong visual hierarchy.',
   },
   {
-    icon: '📋',
+    icon: 'layers',
     title: 'Multi-Page Builds',
     description: 'Company websites with About, Services, Portfolio, Pricing, and Contact pages.',
   },
   {
-    icon: '⚡',
+    icon: 'performance',
     title: 'Performance Optimization',
     description: 'Fast loading pages, clean code, mobile-first design, and modern browser support.',
   },
   {
-    icon: '🛍️',
+    icon: 'ecommerce',
     title: 'E-commerce Setup',
     description: 'Simple shop pages, product showcases, payment links, and order-ready landing experiences.',
   },
   {
-    icon: '🚀',
+    icon: 'launch',
     title: 'Content & Launch Support',
     description: 'Content guidance, domain setup, hosting advice, and full handoff with credentials.',
   },
   {
-    icon: '✨',
+    icon: 'wand',
     title: 'Branding Add-ons',
     description: 'Logo and color direction, messaging polish, and page structure for stronger conversions.',
   },
@@ -35,6 +35,7 @@ import { Link } from 'react-router-dom'
 import { servicesFaqs } from '../data/faqData'
 import FaqSection from '../components/FaqSection'
 import Seo from '../components/Seo'
+import ServiceIcon from '../components/ServiceIcon'
 import { servicesSchema } from '../config/schema'
 
 function ServicesPage() {
@@ -55,7 +56,7 @@ function ServicesPage() {
         <div className="grid grid-3">
           {services.map((service) => (
             <article key={service.title} className="feature-card service-card">
-              <span className="card-icon">{service.icon}</span>
+              <span className="card-icon card-icon-tile"><ServiceIcon name={service.icon} /></span>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
             </article>

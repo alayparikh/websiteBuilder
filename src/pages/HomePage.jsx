@@ -4,6 +4,7 @@ import { heroMockupSlides, portfolioItems } from '../data/portfolioProjects'
 import { homeFaqs } from '../data/faqData'
 import FaqSection from '../components/FaqSection'
 import Seo from '../components/Seo'
+import ServiceIcon from '../components/ServiceIcon'
 import { homeSchema } from '../config/schema'
 
 const stats = [
@@ -15,22 +16,22 @@ const stats = [
 
 const serviceItems = [
   {
-    icon: '⚡',
+    icon: 'landing',
     title: 'Landing Pages',
     description: 'Fast, modern single-page websites for startups, agencies, and product launches.',
   },
   {
-    icon: '🏛️',
+    icon: 'business',
     title: 'Business Websites',
     description: 'Multi-page sites with About, Services, Portfolio, Contact and conversion-focused sections.',
   },
   {
-    icon: '🛍️',
+    icon: 'ecommerce',
     title: 'E-commerce Basics',
     description: 'Product catalogs, cart setup, payment links, and store-ready landing pages.',
   },
   {
-    icon: '🎨',
+    icon: 'brand',
     title: 'Brand Refresh',
     description: 'Complete website redesigns that improve trust, clarity, and customer engagement.',
   },
@@ -177,7 +178,7 @@ function HomePage() {
         <div className="grid grid-4">
           {serviceItems.map((item) => (
             <article key={item.title} className="feature-card">
-              <span className="card-icon">{item.icon}</span>
+              <span className="card-icon card-icon-tile"><ServiceIcon name={item.icon} /></span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>
