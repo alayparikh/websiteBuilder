@@ -143,7 +143,7 @@ function HomePage() {
         <div className="grid grid-2 pricing-grid">
           <article className="feature-card pricing-card-new">
             <h3>Single Page</h3>
-            <p className="price-large">$100</p>
+            <p className="price-large">$150</p>
             <p className="plan-note">One-time · Full ownership</p>
             <ul className="checklist">
               <li>Responsive design</li>
